@@ -1,97 +1,85 @@
-/* Basic styling */
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-body {
-  font-family: sans-serif;
-  font-size: 16px;
+
+.wrapper > * {
+  padding: 20px;
 }
-nav {
-  background: #222;
-  padding: 0 15px;
+
+.page-main {
+  flex-grow: 1;
 }
-a {
-  color: white;
-  text-decoration: none;
-}
-.menu,
-.submenu {
-  list-style-type: none;
-}
-.logo {
-  font-size: 20px;
-  padding: 7.5px 10px 7.5px 0;
-}
-.item {
-  padding: 10px;
-}
-.item.button {
-  padding: 9px 5px;
-}
-.item:not(.button) a:hover,
-.item a:hover::after {
-  color: #ccc;
-}
-/* Mobile menu */
-.menu {
+
+.page-header nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
-.menu li a {
-  display: block;
-  padding: 15px 5px;
-}
-.menu li.subitem a {
-  padding: 15px;
-}
-.toggle {
+
+.page-header ul {
+  display: flex;
   order: 1;
-  font-size: 20px;
-}
-.item.button {
-  order: 2;
-}
-.item {
-  order: 3;
   width: 100%;
-  text-align: center;
-  display: none;
-}
-.active .item {
-  display: block;
-}
-.button.secondary {
-  /* divider between buttons and menu links */
-  border-bottom: 1px #444 solid;
+  margin-top: 15px;
 }
 
-/* Submenu up from mobile screens */
-.submenu {
-  display: none;
+@media screen and (min-width: 550px) {
+  .page-header ul {
+    width: auto;
+    margin-top: 0;
+  }
+  .page-header .cta-contact {
+    order: 1;
+  }
 }
-.submenu-active .submenu {
-  display: block;
+
+/* variables */
+:root {
+  --main-white-color: white;
+  --main-purple-color: #9e89b8;
 }
-.has-submenu i {
-  font-size: 12px;
+
+.page-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 350px;
+  background: var(--main-purple-color) url(IMG_SRC) no-repeat center / cover;
+  background-blend-mode: luminosity;
+  color: var(--main-white-color);
 }
-.has-submenu > a::after {
-  font-family: "Font Awesome 5 Free";
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 900;
-  content: "\f078";
-  color: white;
-  padding-left: 5px;
+
+.page-main div {
+  max-width: 500px;
 }
-.subitem a {
-  padding: 10px 15px;
+
+@media screen and (min-width: 768px) {
+  .page-main {
+    padding-left: 90px;
+  }
 }
-.submenu-active {
-  background-color: #111;
-  border-radius: 3px;
+
+.page-footer {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.page-footer ul {
+  display: flex;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+@media screen and (min-width: 550px) {
+  .page-footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-footer ul {
+    margin-bottom: 0;
+  }
 }
